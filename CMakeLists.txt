@@ -5,6 +5,8 @@ project(
     LANGUAGES CXX
 )
 
+option(CPPFT_ENABLE_ERROR_LOG "Show compiler log on error" ON)
+
 function(try_compile_feature FEATURE_NAME)
     string(TOLOWER "${FEATURE_NAME}" FEATURE_NAME_LOWER)
 
@@ -45,7 +47,9 @@ function(try_compile_feature FEATURE_NAME)
         message(STATUS "Trying to build ${FEATURE_NAME_LOWER}: Success")
     else()
         message(STATUS "Trying to build ${FEATURE_NAME_LOWER}: Error")
-        message(STATUS "Error message:\n${LOG_MESSAGE}")
+        if(CPP20FT_ENABLE_ERROR_LOG)
+            message(STATUS "Error message:\n${LOG_MESSAGE}")
+        endif()
     endif()
 endfunction()
 
@@ -53,4 +57,4 @@ try_compile_feature("cmp")
 try_compile_feature("concept")
 try_compile_feature("consteval")
 try_compile_feature("span")
-try_compile_feature("string_view")
+# try_compile_feature("string_view")

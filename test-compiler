@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -eu
+
+compiler_name=$1
+compiler_version=$2
+compiler_command=$3
+
+image=test-$compiler_name:$compiler_version
+
+docker build \
+    -t "$image" \
+    --build-arg VERSION="$compiler_version" \
+    "docker/$compiler_name"
+
+docker run \
+    -it \
+    --rm \
+    --volume "$PWD:/work" \
+    --user "$(id -u "$USER"):$(id -g "$USER")" \
+    "$image" \
+    cmake \
+        -B "build/$compiler_name/$compiler_version" \
+        -DCMAKE_CXX_COMPILER="$compiler_command" \
+        -DCPPFT_ENABLE_ERROR_LOG=OFF
