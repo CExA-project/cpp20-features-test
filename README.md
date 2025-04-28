@@ -12,7 +12,7 @@ This project contains simple C++20 code samples and a bit of CMake code to test 
 | IntelLLVM  | <2022.1.1         | <2022.1.1 | Yes (for CPU)              |
 | NVCC       | 12.0.0            | 12.0.0    | Yes                        |
 | NVHPC      | 20.11             | 20.7?     | No                         |
-| ROCM       | <3.5              | <3.7      | No                         |
+| ROCM       | <3.7              | <3.7      | No                         |
 | MSVC       | 19.30?            | 19.29?    | Yes                        |
 | ARM/Clang  |                   |           |                            |
 
