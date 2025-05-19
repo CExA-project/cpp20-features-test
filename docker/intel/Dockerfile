@@ -1,7 +1,6 @@
 ARG VERSION=2023.1.0
-ARG OS=ubuntu
 ARG OS_VERSION=18.04
-FROM intel/oneapi-basekit:$VERSION-devel-$OS$OS_VERSION
+FROM intel/oneapi-basekit:$VERSION-devel-ubuntu$OS_VERSION
 
 RUN apt-get update && \
         apt-get install -qq -y \

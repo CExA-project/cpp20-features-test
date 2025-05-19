@@ -1,7 +1,6 @@
 ARG VERSION=12.0.0
-ARG OS=ubuntu
 ARG OS_VERSION=22.04
-FROM nvidia/cuda:$VERSION-devel-$OS$OS_VERSION
+FROM nvidia/cuda:$VERSION-devel-ubuntu$OS_VERSION
 
 RUN apt-get update && \
         apt-get install -qq -y \

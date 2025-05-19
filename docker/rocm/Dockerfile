@@ -1,8 +1,6 @@
 ARG VERSION=5.3.3
-ARG OS=ubuntu
 ARG OS_VERSION=20.04
-FROM nvidia/cuda:$VERSION-devel-$OS$OS_VERSION
-FROM rocm/dev-$OS-$OS_VERSION:$VERSION
+FROM rocm/dev-ubuntu-$OS_VERSION:$VERSION
 
 # ignore apt-get error, old images may not be aple to refresh amd repos
 RUN apt-get update ; \

@@ -1,8 +1,7 @@
 ARG VERSION=23.11
-ARG OS=ubuntu
 ARG OS_VERSION=22.04
 ARG CUDA_VERSION=12.3
-FROM nvcr.io/nvidia/nvhpc:$VERSION-devel-cuda$CUDA_VERSION-$OS$OS_VERSION
+FROM nvcr.io/nvidia/nvhpc:$VERSION-devel-cuda$CUDA_VERSION-ubuntu$OS_VERSION
 
 RUN apt-get update && \
         apt-get install -qq -y \

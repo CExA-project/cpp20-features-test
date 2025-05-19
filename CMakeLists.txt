@@ -7,6 +7,12 @@ project(
 
 option(CPPFT_ENABLE_ERROR_LOG "Show compiler log on error" ON)
 
+if("${CMAKE_CXX_COMPILER}" MATCHES "clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+endif()
+
+message(STATUS "Compiler ${CMAKE_CXX_COMPILER} v${CMAKE_CXX_COMPILER_VERSION}")
+
 function(try_compile_feature FEATURE_NAME)
     string(TOLOWER "${FEATURE_NAME}" FEATURE_NAME_LOWER)
 
